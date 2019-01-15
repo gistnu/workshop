@@ -89,8 +89,14 @@ processing.runAndLoadResults("native:buffer", {'INPUT':vill,'DISTANCE':5000,'SEG
 
 processing.runAndLoadResults("native:buffer", {'INPUT':vill,'DISTANCE':5000,'SEGMENTS':50,'DISSOLVE':True,'OUTPUT':'memory:'})
 
-processing.runAndLoadResults("native:buffer", {'INPUT':vill,'DISTANCE':5000,'SEGMENTS':50,'DISSOLVE':True, \
-'OUTPUT':'C:/Workspace/pyqgis/villbuffer.shp'})
+processing.runAndLoadResults("native:buffer", {'INPUT':vill,'DISTANCE':5000,'SEGMENTS':50,'DISSOLVE':True,'OUTPUT':'C:/Workspace/pyqgis/villbuffer.shp'})
 
+### Clip ###
+river = "C:/Workspace/pyqgis/pl_stream.shp"
+bndary = "C:/Workspace/pyqgis/pl_amphoe_mueang.shp"
+
+processing.runAndLoadResults("native:clip", {'INPUT':river,'OVERLAY':bndary,'OUTPUT':'memory:'})
+
+processing.runAndLoadResults("native:clip", {'INPUT':river,'OVERLAY':bndary,'OUTPUT':'C:/Workspace/pyqgis/river_clip.shp'})
 
 ```
